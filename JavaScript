@@ -1,1 +1,20 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const ctaContent = document.querySelector('.cta-content');
+    const popupInfo = document.getElementById('popupInfo');
 
+    ctaContent.addEventListener('click', () => {
+        // Toggle the display of the popup
+        if (popupInfo.style.display === 'block') {
+            popupInfo.style.display = 'none';
+        } else {
+            popupInfo.style.display = 'block';
+        }
+    });
+
+    // Optional: Hide popup when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!ctaContent.contains(event.target) && !popupInfo.contains(event.target)) {
+            popupInfo.style.display = 'none';
+        }
+    });
+});
