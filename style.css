@@ -1,1 +1,214 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0; /* Light background for the "table" */
+    overflow: hidden; /* Hide scrollbars if content slightly overflows */
+}
 
+.container {
+    width: 90%;
+    max-width: 1000px; /* Adjust as needed */
+    border: 1px solid #ccc; /* Overall border for the "paper" */
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2); /* Shadow to make it look lifted */
+    background-color: #fff; /* White background for the paper */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Section (Header) */
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 3px solid orange; /* Orange line from the image */
+    background-color: #f8f8f8; /* Slightly different background for header */
+}
+
+.top-section .logo {
+    display: flex;
+    align-items: center;
+}
+
+.top-section .logo img {
+    height: 40px; /* Adjust logo size */
+    margin-right: 10px;
+}
+
+.top-section .logo p {
+    margin: 0;
+    font-size: 0.9em;
+    line-height: 1.2;
+}
+
+.top-section .search-bar input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Navigation Section */
+.navigation-section {
+    background-color: orange; /* Orange background for the navigation bar */
+    padding: 10px 0;
+    border-bottom: 3px solid white; /* White line below orange */
+}
+
+.navigation-section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navigation-section ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.navigation-section ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Call to Action Section */
+.call-to-action-section {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-bottom: 3px solid orange; /* Orange line below this section */
+    position: relative; /* For positioning the popup */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.call-to-action-section .cta-content {
+    cursor: pointer;
+}
+
+.call-to-action-section p {
+    font-size: 1.1em;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.popup-info {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position below the CTA text */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 10px 20px;
+    border-radius: 8px;
+    z-index: 10;
+    min-width: 150px;
+}
+
+.popup-info ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.popup-info ul li {
+    margin-bottom: 5px;
+}
+
+/* Main Content Section */
+.main-content-section {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr; /* Adjust column widths as needed */
+    gap: 1px; /* Small gap to simulate paper folds */
+    background-color: orange; /* Color for the "folds" */
+    padding: 1px; /* Padding for the "folds" */
+}
+
+.left-column, .middle-column, .right-column {
+    background-color: white; /* Inner paper color */
+    padding: 15px;
+}
+
+.left-column .item {
+    margin-bottom: 15px;
+    font-weight: bold;
+    border-bottom: 1px dashed #eee; /* Subtle separator */
+    padding-bottom: 5px;
+}
+
+.middle-column {
+    display: flex;
+    flex-direction: row; /* Two garden beds side-by-side */
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    background-color: #f0f0f0; /* Light brown for the garden beds background */
+    padding: 15px;
+}
+
+.garden-bed {
+    background-color: #d2b48c; /* Soil color */
+    border: 1px solid #8B4513; /* Darker brown border */
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+    max-width: 45%; /* Control width of each garden bed */
+}
+
+.plant-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.plant {
+    width: 15px;
+    height: 15px;
+    background-color: #5cb85c; /* Green for plants */
+    border-radius: 50%; /* Make them round */
+    border: 1px solid #4CAF50;
+}
+
+.right-column .topic {
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-content-section {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+
+    .top-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .top-section .logo {
+        margin-bottom: 10px;
+    }
+
+    .navigation-section ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navigation-section ul li {
+        margin-bottom: 5px;
+    }
+}
